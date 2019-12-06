@@ -42,36 +42,6 @@ def create_features(relations, attr_entity, attribute_candidate_types, cv, is_tr
     mesh_semantic_types_feature = MeshSemanticTypesFeature(mesh_semantic_types).transform(relations)
     knowledge_feature = KnowledgeFeature(knowledge_vectors).transform(relations)
 
-    # caps_entity_feature = CAPSEntityFeature().transform(relations)
-    # digit_feature = DigitFeature().transform(relations)
-    # pos_entity_feature = POSEntityFeature(pos_tags).transform(relations)
-    # pos_feature = POSFeature(pos_tags).transform(relations)
-    # adr_lexicon_feature = ADRLexiconFeature(adr_lexicon).transform(relations)
-
-    # embedding_vector_health_feature = EmbeddingFeature(w2v_model_health).transform(relations)
-    # embedding_vector_bio_feature = EmbeddingFeature(w2v_model_bio).transform(relations)
-
-    # if is_train:
-    #     bio_sentence_vectors = ResourceManager.load_bio_sentence_vectors(ResourceManager.N2C2_BIO_SENTENCE_VECTORS_FILE_TRAIN)
-    #     bio_sentence_feature = BioSentenceFeature(corpora_name=CORPORA_NAME, sent_vectors=bio_sentence_vectors).transform(relations)
-    # else:
-    #     bio_sentence_vectors = ResourceManager.load_bio_sentence_vectors(ResourceManager.N2C2_BIO_SENTENCE_VECTORS_FILE_TEST)
-    #     bio_sentence_feature = BioSentenceFeature(corpora_name=CORPORA_NAME, sent_vectors=bio_sentence_vectors).transform(relations)
-
-    # bio_sentence_feature = BioSentenceFeature(corpora_name=CORPORA_NAME, sent_vectors=bio_sentence_vectors).transform(relations)
-    # verbs_between_entities_feature = VerbsBetweenEntitiesFeature().transform(relations)
-    # cosine_similarity_feature = CosineSimilarityFeature(w2v_model_bio).transform(relations)
-    # similarity_feature = SimilarityFeature(w2v_model_bio).transform(relations)
-    # semantic_types_feature = UMLSSemanticTypeFeature(semantic_types).transform(relations)
-    # mesh_semantic_types_feature = MeshSemanticTypesFeature(mesh_semantic_types).transform(relations)
-    # fda_coocurance_feature = FDACoocuranceFeature(fda_coocurance).transform(relations)
-    # pubmed_feature = PubmedFeature(pubmed_vectors).transform(relations)
-
-    # bag_of_middle_context_feature = BagOfMiddlecontextFeature(cv2).transform(relations, cv2, is_train)
-    # context_embedding_feature = ContextEmbeddingFeature(w2v_model_bio).transform(relations)
-    # bert_vectors_feature = BERTVectorsFeature(bert_vectors).transform(relations)
-    # concept_embeddings_feature = ConceptBasedEmbeddingFeature(concept_embeddings).transform(relations)
-
     features = numpy.concatenate((
                               word_distance_feature,
                               char_distance_feature,
@@ -88,35 +58,7 @@ def create_features(relations, attr_entity, attribute_candidate_types, cv, is_tr
                               similarity_feature,
                               umls_semantic_types_feature,
                               mesh_semantic_types_feature,
-                              knowledge_feature
-
-        # caps_entity_feature,
-                              # digit_feature,
-                              # pos_entity_feature,
-                              # pos_feature,
-                              # adr_lexicon_feature,
-                              # embedding_vector_pubmed_and_pmc_feature,
-                              # embedding_vector_health_feature,
-                              # embedding_vector_bio_feature,
-                              # verbs_between_entities_feature,
-                              # cosine_similarity_feature,
-                              # similarity_feature,
-                              # bio_sentence_feature,
-                              # semantic_types_feature,
-                              # pubmed_feature,
-                              # mesh_semantic_types_feature,
-                              # fda_coocurance_feature,
-                              # pubmed_feature
-
-                              # bag_of_middle_context_feature
-                              # concept_embeddings_feature
-                              ), axis=1)
-    # if type == 'do':
-    #     fda_drug_dose_feature = FDADrugDoseFeature(fda_drug_dose).transform(relations)
-    #     numpy.concatenate((features, fda_drug_dose_feature), axis=1)
-    # if type == 'adverse':
-    #     pubmed_feature = PubmedFeature(pubmed_vectors).transform(relations)
-    #     numpy.concatenate((features, pubmed_feature), axis=1)
+                              knowledge_feature), axis=1)
     return features
 
 
@@ -197,5 +139,5 @@ if __name__ == "__main__":
         all_predicted_labels.extend(predicted_labels)
         all_gold_labels.extend(relations_by_type_test[type].get_labels())
 
-    evaluate(all_gold_labels,all_predicted_labels)
+    evaluate(all_gold_labels, all_predicted_labels)
 

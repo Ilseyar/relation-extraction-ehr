@@ -1,6 +1,6 @@
 # Relation Extraction from Electronic Health Records
 
-This repository contains the source code for the paper Alimova I., Tutubalina E. Multiple Features for Clinical Relation Extraction: a Machine Learning Approach.
+This repository contains the source code for the [paper](https://www.sciencedirect.com/science/article/abs/pii/S1532046420300095) Alimova I., Tutubalina E. Multiple features for clinical relation extraction: A machine learning approach //Journal of Biomedical Informatics. – 2020. – Т. 103. – С. 103382.
 
 # Corpora
 

@@ -2,6 +2,18 @@
 
 This repository contains the source code for the [paper](https://www.sciencedirect.com/science/article/abs/pii/S1532046420300095) Alimova I., Tutubalina E. Multiple features for clinical relation extraction: A machine learning approach //Journal of Biomedical Informatics. – 2020. – Т. 103. – С. 103382.
 
+```
+@article{alimova2020multiple,
+  title={Multiple features for clinical relation extraction: A machine learning approach},
+  author={Alimova, Ilseyar and Tutubalina, Elena},
+  journal={Journal of Biomedical Informatics},
+  volume={103},
+  pages={103382},
+  year={2020},
+  publisher={Elsevier}
+}
+```
+
 # Corpora
 
 MADE corpus is taken from Jagannatha A. et al. Overview of the first natural language processing challenge for extracting medication, indication, and adverse drug events from electronic health record notes (MADE 1.0) //Drug safety. – 2019. – Т. 42. – №. 1. – С. 99-111.
